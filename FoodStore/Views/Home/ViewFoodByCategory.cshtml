@@ -1,0 +1,29 @@
+﻿@model IEnumerable<FoodStore.Models.FoodInfo>
+
+@{
+    ViewData["Title"] = "ViewFoodByCategory";
+}
+
+<h1 class="headingfont text-center">View Food</h1>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 mb-4">
+            <div class="card h-100 border-primary">
+                <img src="~/foodphotos/@item.FoodID@item.Extension" alt="" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <p>@Html.DisplayFor(modelItem => item.FoodName)</p>
+
+                    </h4>
+                    <h5>Price  :$ @Html.DisplayFor(modelItem => item.Price)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+                <div class="card-footer">
+                    <p><a asp-controller="FoodOrders" asp-action="Create" class="btn btn-primary">Place Order</a></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

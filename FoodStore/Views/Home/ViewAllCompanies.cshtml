@@ -1,0 +1,27 @@
+﻿@model IEnumerable<FoodStore.Models.Company>
+@{
+    ViewData["Title"] = "Home Page";
+}
+    <div class="text-center">
+        <h1 class="display-4 headingfont" style="margin-bottom:50px;">All Companies</h1>
+    </div>
+
+<div class="row" style="margin-bottom:50px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card w-100">
+                <center>
+                    <img src="~/slide/cart.jpg" alt="" style="width:100%">
+                </center>
+                <div class="card-body">
+                    <h5 class="card-text">
+                        @item.CompanyName
+                    </h5>
+                    <a class="btn btn-primary" asp-action="ViewFoodByCompany" asp-route-id="@item.CompanyID">View Product</a>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
